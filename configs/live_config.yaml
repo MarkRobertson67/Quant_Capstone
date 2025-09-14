@@ -1,0 +1,30 @@
+# === Live Trading Configuration (Kraken) ===
+
+# Exchange settings
+exchange:
+  name: kraken
+  api_key: KRAKEN_API_KEY
+  api_secret: KRAKEN_API_SECRET
+  sandbox: true   # true = use Kraken test environment if supported
+
+# Trading pair
+symbol: "BTC/USDT"
+
+# Strategy parameters
+strategy:
+  type: "reversal"
+  lookback: 20          # number of candles for signal calculation
+  entry_threshold: 0.02 # 2% move triggers entry
+  exit_threshold: 0.01  # 1% pullback triggers exit
+
+# Risk management
+risk:
+  capital: 1000          # starting balance in USD
+  max_position_size: 0.1 # max BTC per trade
+  stop_loss: 0.03        # 3% stop loss
+  take_profit: 0.06      # 6% take profit
+
+# Logging
+logging:
+  level: INFO
+  file: "logs/live_trading.log"
